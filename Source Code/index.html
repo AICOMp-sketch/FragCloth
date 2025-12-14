@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flag Cloth Playground</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="styles.css"></link>
+</head>
+<body class="text-slate-100">
+  <main class="max-w-6xl mx-auto px-4 py-10 space-y-8">
+    <header class="space-y-3 text-center md:text-left">
+      <p class="text-emerald-300 text-sm uppercase tracking-[0.4em]">Interactive Physics</p>
+      <h1 class="text-4xl md:text-5xl font-semibold text-white">Flag Cloth Playground</h1>
+      <p class="text-slate-300 max-w-3xl mx-auto md:mx-0">
+        Watch a soft-body flag ripple in the wind, collide with floating shapes, and respond to your custom pins. Adjust every force to sculpt the motion you want.
+      </p>
+    </header>
+
+    <section class="bg-white/5 backdrop-blur rounded-3xl border border-white/10 p-6 space-y-5">
+      <div class="grid md:grid-cols-2 gap-6 items-center">
+        <div>
+          <div class="flex items-center justify-between">
+            <label for="windRange" class="text-sm uppercase tracking-[0.4em] text-slate-400">Wind Strength</label>
+            <span class="text-lg font-semibold text-sky-300"><span id="windValue">40</span>%</span>
+          </div>
+          <p class="text-xs text-slate-400 mt-1">Higher gusts exaggerate ripples and add turbulence along the cloth.</p>
+        </div>
+        <input id="windRange" type="range" min="0" max="100" value="40" class="w-full accent-sky-400">
+      </div>
+
+      <div class="flex flex-wrap gap-3">
+        <button id="pauseBtn" class="px-5 py-2 rounded-full bg-slate-900 text-white border border-white/10 hover:bg-slate-800">Pause</button>
+        <button id="resetBtn" class="px-5 py-2 rounded-full bg-sky-500/80 text-white hover:bg-sky-500">Reset Cloth</button>
+        <button id="pinCornersBtn" class="px-5 py-2 rounded-full bg-emerald-500/70 text-white hover:bg-emerald-500">Pin Corners</button>
+        <button id="unpinBtn" class="px-5 py-2 rounded-full bg-rose-500/70 text-white hover:bg-rose-500">Unpin Everything</button>
+      </div>
+
+      <p class="text-sm text-slate-300">Click any cloth node to toggle pins. Use the controls to anchor corners, pause, or rebuild the simulation instantly.</p>
+    </section>
+
+    <section class="bg-white/5 backdrop-blur rounded-3xl border border-white/10 p-4">
+      <canvas id="clothCanvas" width="960" height="540" aria-label="Flag cloth simulation"></canvas>
+    </section>
+
+    <section class="grid md:grid-cols-3 gap-4 text-sm">
+      <div class="bg-white/5 rounded-2xl border border-white/10 p-4">
+        <p class="text-slate-400 uppercase text-xs tracking-[0.3em]">Pins</p>
+        <p class="text-slate-200 mt-2">Pins lock individual nodes in place—draw your own supports or stick with anchored corners.</p>
+      </div>
+      <div class="bg-white/5 rounded-2xl border border-white/10 p-4">
+        <p class="text-slate-400 uppercase text-xs tracking-[0.3em]">Obstacles</p>
+        <p class="text-slate-200 mt-2">A floating orb and hovering beam interact with the cloth, forcing it to wrap, slide, and fold.</p>
+      </div>
+      <div class="bg-white/5 rounded-2xl border border-white/10 p-4">
+        <p class="text-slate-400 uppercase text-xs tracking-[0.3em]">Wind</p>
+        <p class="text-slate-200 mt-2">Randomized gusts inject motion—dial them up for chaotic fluttering or down for gentle sways.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
